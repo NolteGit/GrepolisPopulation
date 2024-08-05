@@ -1,3 +1,4 @@
+// script.js
 function updateFarmLevel(change) {
     const farmLevelInput = document.getElementById('farm_level');
     let farmLevel = parseInt(farmLevelInput.value);
@@ -35,4 +36,3 @@ function getMaxPopulation(level, therme, plow) {
 
 // Initialize population calculation
 calculatePopulation();
-
