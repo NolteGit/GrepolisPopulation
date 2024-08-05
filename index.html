@@ -12,7 +12,7 @@
         <div class="controls">
             <label for="farm_level">Farm Level:</label>
             <button onclick="updateFarmLevel(-1)">-</button>
-            <input type="number" id="farm_level" value="1" min="1" readonly>
+            <input type="number" id="farm_level" value="1" min="1" oninput="calculatePopulation()">
             <button onclick="updateFarmLevel(1)">+</button>
             <br>
             <label for="therme">Therme:</label>
