@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+.controls, .results {
+    margin-top: 20px;
+}
+.controls input, .controls button {
+    margin: 5px;
+}
+

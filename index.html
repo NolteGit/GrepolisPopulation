@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grepolis Population Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Grepolis Population Manager</h1>
+        <div class="controls">
+            <label for="farm_level">Farm Level:</label>
+            <button onclick="updateFarmLevel(-1)">-</button>
+            <input type="number" id="farm_level" value="1" min="1" readonly>
+            <button onclick="updateFarmLevel(1)">+</button>
+            <br>
+            <label for="therme">Therme:</label>
+            <input type="checkbox" id="therme">
+            <label for="plow">Plow:</label>
+            <input type="checkbox" id="plow">
+        </div>
+        <div class="controls">
+            <label for="unit_population">Units Population:</label>
+            <input type="number" id="unit_population" value="0" min="0">
+            <label for="building_population">Buildings Population:</label>
+            <input type="number" id="building_population" value="0" min="0">
+            <br>
+            <button onclick="calculatePopulation()">Calculate Population</button>
+        </div>
+        <div class="results">
+            <h2>Results</h2>
+            <p>Current Population: <span id="current_population">0</span></p>
+            <p>Maximum Population: <span id="max_population">0</span></p>
+            <p>Population Used by Units: <span id="unit_population_result">0</span></p>
+            <p>Population Used by Buildings: <span id="building_population_result">0</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
