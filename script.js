@@ -13,21 +13,24 @@ function calculatePopulation() {
     const unitPopulation = parseInt(document.getElementById('unit_population').value);
     const buildingPopulation = parseInt(document.getElementById('building_population').value);
 
-    let maxPopulation = farmLevel * 100;
-    if (therme) {
-        maxPopulation *= 1.10;
-    }
-    if (plow) {
-        maxPopulation += 200;
-    }
-    maxPopulation = Math.min(maxPopulation, 4116);
-
+    const maxPopulation = getMaxPopulation(farmLevel, therme, plow);
     const currentPopulation = maxPopulation - (unitPopulation + buildingPopulation);
 
     document.getElementById('current_population').innerText = currentPopulation;
     document.getElementById('max_population').innerText = maxPopulation;
     document.getElementById('unit_population_result').innerText = unitPopulation;
     document.getElementById('building_population_result').innerText = buildingPopulation;
+}
+
+function getMaxPopulation(level, therme, plow) {
+    let maxPopulation = populationData.find(data => data.level === level).maxPopulation;
+    if (therme) {
+        maxPopulation = Math.floor(maxPopulation * 1.10);
+    }
+    if (plow) {
+        maxPopulation += 200;
+    }
+    return Math.min(maxPopulation, 4116);
 }
 
 // Initialize population calculation
