@@ -111,11 +111,3 @@ h1 {
     gap: 10px;
     justify-content: center;
 }
-
-.unit-consumers label, .building-consumers label {
-    width: 100%;
-}
-
-.unit-consumers input, .building-consumers input {
-    width: calc(50% - 10px);
-}
