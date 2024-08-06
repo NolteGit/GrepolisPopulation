@@ -28,6 +28,15 @@
             <label for="unit_population">Units Population:</label>
             <input type="number" id="unit_population" value="0" min="0" oninput="calculatePopulation()">
             <br>
+            <!-- Unit Selectors -->
+            <div>
+                <label for="Schwertkämpfer">Schwertkämpfer:</label>
+                <input type="number" id="Schwertkämpfer" class="unit-select" data-unit="Schwertkämpfer" value="0" min="0" oninput="calculatePopulation()">
+                <label for="Schleuderer">Schleuderer:</label>
+                <input type="number" id="Schleuderer" class="unit-select" data-unit="Schleuderer" value="0" min="0" oninput="calculatePopulation()">
+                <!-- Add other units similarly -->
+            </div>
+            <br>
             <!-- Building Levels -->
             <label for="senat_level">Senat:</label>
             <input type="number" id="senat_level" value="0" min="0" max="25" oninput="calculatePopulation()">
