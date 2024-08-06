@@ -31,12 +31,12 @@ function calculatePopulation() {
 }
 
 function calculateUnitPopulation() {
-    const unitSelects = document.querySelectorAll('.unit-select');
+    const unitInputs = document.querySelectorAll('.unit-consumers input');
     let totalPopulation = 0;
 
-    unitSelects.forEach(select => {
-        const unitType = select.getAttribute('data-unit');
-        const unitCount = parseInt(select.value) || 0;
+    unitInputs.forEach(input => {
+        const unitType = input.id;
+        const unitCount = parseInt(input.value) || 0;
         totalPopulation += unitCount * (unitPopulationData[unitType] || 0);
     });
 
@@ -129,4 +129,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     loadHTML('buildingConsumers.html', 'building-consumers-container');
     loadHTML('unitConsumers.html', 'unit-consumers-container');
 });
-
