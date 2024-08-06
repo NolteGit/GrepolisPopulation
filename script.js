@@ -1,4 +1,5 @@
-// script.js
+import { populationData, buildingPopulationData } from './data.js';
+
 function updateFarmLevel(change) {
     const farmLevelInput = document.getElementById('farm_level');
     let farmLevel = parseInt(farmLevelInput.value);
@@ -14,7 +15,7 @@ function calculatePopulation() {
     const landerweiterung = parseInt(document.getElementById('landerweiterung').value);
     const pygmalion = document.getElementById('pygmalion').checked;
     const unitPopulation = parseInt(document.getElementById('unit_population').value);
-    const buildingPopulation = parseInt(document.getElementById('building_population').value);
+    const buildingPopulation = calculateBuildingPopulation();
 
     const maxPopulation = getMaxPopulation(farmLevel, therme, plow, landerweiterung, pygmalion);
     const currentPopulation = maxPopulation - (unitPopulation + buildingPopulation);
@@ -23,6 +24,24 @@ function calculatePopulation() {
     document.getElementById('max_population').innerText = maxPopulation;
     document.getElementById('unit_population_result').innerText = unitPopulation;
     document.getElementById('building_population_result').innerText = buildingPopulation;
+}
+
+function calculateBuildingPopulation() {
+    const buildings = [
+        'Senat', 'Holzfaeller', 'Steinbruch', 'Silbermine', 'Kaserne', 'Hafen', 
+        'Akademie', 'Marktplatz', 'Tempel', 'Hoehle', 'Stadtmauer', 'SpezialA', 'SpezialB'
+    ];
+    
+    let totalPopulation = 0;
+
+    buildings.forEach(building => {
+        const level = parseInt(document.getElementById(`${building.toLowerCase()}_level`).value) || 0;
+        if (buildingPopulationData[building] && level > 0) {
+            totalPopulation += buildingPopulationData[building][level - 1] || 0;
+        }
+    });
+
+    return totalPopulation;
 }
 
 function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
