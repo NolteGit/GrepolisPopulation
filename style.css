@@ -178,22 +178,15 @@ h1 {
     text-align: center;
 }
 
-.building-consumers {
+.building-consumers, .unit-consumers {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
     gap: 10px;
 }
 
-.building-consumers div {
+.building-consumers div, .unit-consumers div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-}
-
-.building-consumers div label {
-    order: 1;
-}
-
-.building-consumers div input {
-    order: 2;
+    gap: 5px;
 }
