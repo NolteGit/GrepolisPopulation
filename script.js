@@ -109,13 +109,13 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
 }
 
 function calculateTransportCapacity(kojen) {
-    const kojenAddition = 0;
+    let kojenAddition = 0;
     if (kojen) {
         kojenAddition = 6;
     }
     const transportBootCount = parseInt(document.getElementById('transportboot').value) || 0;
     const schnellesTransportBootCount = parseInt(document.getElementById('schnelles_transportboot').value) || 0;
-    const transportCapacity = (transportBootCount * (26 + kojenAddition) + (schnellesTransportBootCount * (10 + kojenAddition));
+    const transportCapacity = (transportBootCount * (26 + kojenAddition)) + (schnellesTransportBootCount * (10 + kojenAddition));
     
     console.log(`Transport Boats: ${transportBootCount}, Fast Transport Boats: ${schnellesTransportBootCount}, Transport Capacity: ${transportCapacity}`);
     return transportCapacity;
