@@ -178,6 +178,11 @@ h1 {
     text-align: center;
 }
 
+.unit-consumers input[type="number"] {
+    width: 70px; /* Adjusted width */
+    text-align: center;
+}
+
 .building-consumers, .unit-consumers {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
