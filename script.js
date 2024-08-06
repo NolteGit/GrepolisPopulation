@@ -14,9 +14,10 @@ function calculatePopulation() {
     const plow = document.getElementById('plow').checked;
     const landerweiterung = parseInt(document.getElementById('landerweiterung').value);
     const pygmalion = document.getElementById('pygmalion').checked;
+    const kojen = document.getElementById('kojen').checked;
     const unitPopulation = calculateUnitPopulation();
     const buildingPopulation = calculateBuildingPopulation();
-    const transportCapacity = calculateTransportCapacity();
+    const transportCapacity = calculateTransportCapacity(kojen);
 
     const maxPopulation = getMaxPopulation(farmLevel, therme, plow, landerweiterung, pygmalion);
     const currentPopulation = maxPopulation - (unitPopulation + buildingPopulation);
@@ -107,10 +108,14 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
     return Math.round(maxPopulation);
 }
 
-function calculateTransportCapacity() {
+function calculateTransportCapacity(kojen) {
+    const kojenAddition = 0;
+    if (kojen) {
+        kojenAddition = 6;
+    }
     const transportBootCount = parseInt(document.getElementById('transportboot').value) || 0;
     const schnellesTransportBootCount = parseInt(document.getElementById('schnelles_transportboot').value) || 0;
-    const transportCapacity = (transportBootCount * 26) + (schnellesTransportBootCount * 10);
+    const transportCapacity = (transportBootCount * (26 + kojenAddition) + (schnellesTransportBootCount * (10 + kojenAddition));
     
     console.log(`Transport Boats: ${transportBootCount}, Fast Transport Boats: ${schnellesTransportBootCount}, Transport Capacity: ${transportCapacity}`);
     return transportCapacity;
