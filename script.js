@@ -1,4 +1,4 @@
-import { populationData, buildingPopulationData } from './data.js';
+import { populationData, buildingPopulationData, unitPopulationData } from './data.js';
 
 function updateFarmLevel(change) {
     const farmLevelInput = document.getElementById('farm_level');
@@ -14,7 +14,7 @@ function calculatePopulation() {
     const plow = document.getElementById('plow').checked;
     const landerweiterung = parseInt(document.getElementById('landerweiterung').value);
     const pygmalion = document.getElementById('pygmalion').checked;
-    const unitPopulation = parseInt(document.getElementById('unit_population').value);
+    const unitPopulation = calculateUnitPopulation();
     const buildingPopulation = calculateBuildingPopulation();
 
     const maxPopulation = getMaxPopulation(farmLevel, therme, plow, landerweiterung, pygmalion);
@@ -26,6 +26,19 @@ function calculatePopulation() {
     document.getElementById('building_population_result').innerText = buildingPopulation;
 }
 
+function calculateUnitPopulation() {
+    const unitSelects = document.querySelectorAll('.unit-select');
+    let totalPopulation = 0;
+
+    unitSelects.forEach(select => {
+        const unitType = select.getAttribute('data-unit');
+        const unitCount = parseInt(select.value) || 0;
+        totalPopulation += unitCount * (unitPopulationData[unitType] || 0);
+    });
+
+    return totalPopulation;
+}
+
 function calculateBuildingPopulation() {
     const buildings = [
         'senat', 'holzfaeller', 'steinbruch', 'silbermine', 'kaserne', 'hafen', 
@@ -35,7 +48,6 @@ function calculateBuildingPopulation() {
     let totalPopulation = 0;
 
     buildings.forEach(building => {
-        console.log(`Processing building: ${building}`);
         const element = document.getElementById(`${building}_level`);
         if (element) {
             const level = parseInt(element.value) || 0;
