@@ -62,4 +62,38 @@ const buildingPopulationData = {
     SpezialB: [60]
 };
 
-export { populationData, buildingPopulationData };
+const unitPopulationData = {
+    Schwertkämpfer: 1,
+    Schleuderer: 1,
+    Bogenschütze: 1,
+    Hoplit: 1,
+    Reiter: 3,
+    Streitwagen: 4,
+    Katapult: 15,
+    Transportboot: 7,
+    Bireme: 8,
+    Feuerschiff: 10,
+    Brander: 8,
+    Schnellesschiff: 5,
+    Trireme: 16,
+    Kolonieschiff: 170,
+    Minotaurus: 30,
+    Mantikor: 45,
+    Zyklop: 40,
+    Hydra: 50,
+    Harpie: 14,
+    Medusa: 18,
+    Zentaure: 12,
+    Pegasus: 20,
+    Zerberus: 30,
+    Erinys: 55,
+    Greif: 35,
+    Eber: 20,
+    Sirene: 16,
+    Satyr: 16,
+    Ladon: 85,
+    Spartoi: 10,
+    Gottgesandter: 3
+};
+
+export { populationData, buildingPopulationData, unitPopulationData };
