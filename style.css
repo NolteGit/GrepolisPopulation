@@ -56,18 +56,22 @@ h1 {
     gap: 5px;
 }
 
-.inline-controls-top, .inline-controls-bottom {
+.inline-controls-top,
+.inline-controls-bottom {
     display: flex;
-    justify-content: space-between; /* Updated */
+    justify-content: space-between;
     width: 100%;
 }
 
 .inline-controls-top label {
+    flex-basis: 20%;
     text-align: center;
+    margin-right: 10px; /* Add space between labels */
 }
 
 .inline-controls-bottom input[type="checkbox"],
 .inline-controls-bottom input[type="number"] {
+    flex-basis: 20%;
     text-align: center;
 }
 
@@ -178,5 +182,10 @@ h1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
     gap: 10px;
-    width: 100%;
+}
+
+.building-consumers div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
