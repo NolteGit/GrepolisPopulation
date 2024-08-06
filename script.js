@@ -102,7 +102,7 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
     if (pygmalion) {
         maxPopulation += level * 5; // Pygmalion adds a boost equal to the farm level multiplied by 5
     }
-    return Math.min(maxPopulation, 4116);
+    return Math.round(maxPopulation);
 }
 
 // Attach functions to window object
