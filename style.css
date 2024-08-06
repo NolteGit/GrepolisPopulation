@@ -1,15 +1,97 @@
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
-}
-.container {
-    width: 50%;
-    margin: auto;
-    text-align: center;
-}
-.controls, .results {
-    margin-top: 20px;
-}
-.controls input, .controls button {
-    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    gap: 20px;
+}
+
+.left-panel {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right-panel {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* Center align the content */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.level-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.controls label {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.controls input {
+    padding: 5px;
+    font-size: 1em;
+    width: 60px;
+    text-align: center;
+}
+
+.controls button, .level-controls button {
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.level-controls button {
+    padding: 5px 10px;
+    font-size: 1em;
+}
+
+.results {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.results h2 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.results p {
+    font-size: 1.2em;
+    color: #555;
+}
