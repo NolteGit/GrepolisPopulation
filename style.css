@@ -63,7 +63,12 @@ h1 {
     width: 100%;
 }
 
-.inline-controls-top label,
+.inline-controls-top label {
+    flex-basis: 20%;
+    text-align: center;
+    margin-right: 10px; /* Add space between labels */
+}
+
 .inline-controls-bottom input[type="checkbox"],
 .inline-controls-bottom input[type="number"] {
     flex-basis: 20%;
