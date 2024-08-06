@@ -48,7 +48,7 @@ function calculateUnitPopulation() {
 function calculateBuildingPopulation() {
     const buildings = [
         'senat', 'holzfaeller', 'steinbruch', 'silbermine', 'lager', 'kaserne', 'hafen', 
-        'akademie', 'marktplatz', 'tempel', 'hoehle', 'stadtmauer', 'speziala', 'spezialb'
+        'akademie', 'marktplatz', 'tempel', 'hoehle', 'stadtmauer'
     ];
     
     let totalPopulation = 0;
@@ -63,13 +63,26 @@ function calculateBuildingPopulation() {
             
             console.log(`Building: ${buildingName}, Level: ${level}, Population per Level: ${population}`);
             
-            if (population > 0 && level > 0) {
+            if (level > 0) {
                 totalPopulation += population;
             }
         } else {
             console.warn(`Element with id "${building}_level" not found.`);
         }
     });
+
+    // Handle special buildings with fixed population values
+    const spezialAElement = document.getElementById('speziala_level');
+    if (spezialAElement && parseInt(spezialAElement.value) > 0) {
+        totalPopulation += 60;
+        console.log('Special Building A, Population: 60');
+    }
+
+    const spezialBElement = document.getElementById('spezialb_level');
+    if (spezialBElement && parseInt(spezialBElement.value) > 0) {
+        totalPopulation += 60;
+        console.log('Special Building B, Population: 60');
+    }
 
     console.log(`Total Building Population: ${totalPopulation}`);
     return totalPopulation;
