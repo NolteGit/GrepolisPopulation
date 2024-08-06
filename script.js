@@ -1,5 +1,4 @@
 import { populationData, buildingPopulationData, unitPopulationData } from './data.js';
-import { translations } from './translations.js';
 
 function updateFarmLevel(change) {
     const farmLevelInput = document.getElementById('farm_level');
