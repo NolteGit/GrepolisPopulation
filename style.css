@@ -75,11 +75,6 @@ h1 {
     text-align: center;
 }
 
-.inline-controls-top label {
-    font-size: 1em;
-    color: #555;
-}
-
 .inline-controls-bottom input[type="checkbox"] {
     width: 20px;
     height: 20px;
@@ -132,7 +127,7 @@ h1 {
 
 .results {
     text-align: left;
-    margin-top: 0px;
+    margin-top: 0px; /* Adjusted margin-top */
     font-size: 1.1em;
     border: 1px solid #ccc;
     padding: 10px;
