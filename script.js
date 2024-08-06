@@ -132,25 +132,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     loadHTML('unitConsumers.html', 'unit-consumers-container');
 });
 
-// Function to switch language
-function switchLanguage() {
-    const selectedLanguage = document.getElementById('languageSwitcher').value;
-    const elementsToTranslate = {
-        'title': 'title',
-        'farmLevelLabel': 'farmLevel',
-        'resetButton': 'reset',
-        'thermeLabel': 'therme',
-        'plowLabel': 'plow',
-        'pygmalionLabel': 'pygmalion',
-        'landerweiterungLabel': 'popExtension',
-        'resultsTitle': 'results',
-        'currentPopulationLabel': 'currentPopulation',
-        'maxPopulationLabel': 'maxPopulation',
-        'unitPopulationLabel': 'unitPopulation',
-        'buildingPopulationLabel': 'buildingPopulation'
-    };
-
-    for (const [elementId, translationKey] of Object.entries(elementsToTranslate)) {
-        document.getElementById(elementId).innerText = translations[selectedLanguage][translationKey];
-    }
-}
