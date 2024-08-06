@@ -1,4 +1,5 @@
 import { populationData, buildingPopulationData, unitPopulationData } from './data.js';
+import { translations } from './translations.js';
 
 function updateFarmLevel(change) {
     const farmLevelInput = document.getElementById('farm_level');
@@ -86,6 +87,7 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
 window.updateFarmLevel = updateFarmLevel;
 window.calculatePopulation = calculatePopulation;
 window.resetInputs = resetInputs;
+window.switchLanguage = switchLanguage;
 
 // Function to reset inputs
 function resetInputs() {
@@ -107,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('plow').checked = false;
     document.getElementById('pygmalion').checked = false;
     document.getElementById('landerweiterung').value = 0;
+    switchLanguage(); // Set initial language
 });
 
 // Load HTML for building and unit consumers
@@ -128,3 +131,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
     loadHTML('buildingConsumers.html', 'building-consumers-container');
     loadHTML('unitConsumers.html', 'unit-consumers-container');
 });
+
+// Function to switch language
+function switchLanguage() {
+    const selectedLanguage = document.getElementById('languageSwitcher').value;
+    const elementsToTranslate = {
+        'title': 'title',
+        'farmLevelLabel': 'farmLevel',
+        'resetButton': 'reset',
+        'thermeLabel': 'therme',
+        'plowLabel': 'plow',
+        'pygmalionLabel': 'pygmalion',
+        'landerweiterungLabel': 'popExtension',
+        'resultsTitle': 'results',
+        'currentPopulationLabel': 'currentPopulation',
+        'maxPopulationLabel': 'maxPopulation',
+        'unitPopulationLabel': 'unitPopulation',
+        'buildingPopulationLabel': 'buildingPopulation'
+    };
+
+    for (const [elementId, translationKey] of Object.entries(elementsToTranslate)) {
+        document.getElementById(elementId).innerText = translations[selectedLanguage][translationKey];
+    }
+}
