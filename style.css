@@ -59,30 +59,25 @@ h1 {
 .inline-controls-top,
 .inline-controls-bottom {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .inline-controls-top label,
-.inline-controls-bottom label {
-    font-size: 1em;
-    color: #555;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.inline-controls-bottom input[type="checkbox"],
+.inline-controls-bottom input[type="number"] {
+    flex-basis: 20%;
+    text-align: center;
 }
 
-.inline-controls-bottom input[type="number"],
-.inline-controls-bottom input[type="checkbox"] {
-    width: 50px;
-    padding: 2px;
+.inline-controls-top label {
     font-size: 1em;
+    color: #555;
+}
+
+.inline-controls-bottom input[type="number"] {
+    width: 60px; /* Adjust the width if necessary */
     text-align: center;
-    margin-top: 5px;
 }
 
 .controls label {
