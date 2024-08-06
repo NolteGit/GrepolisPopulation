@@ -16,6 +16,7 @@ function calculatePopulation() {
     const pygmalion = document.getElementById('pygmalion').checked;
     const unitPopulation = calculateUnitPopulation();
     const buildingPopulation = calculateBuildingPopulation();
+    const transportCapacity = calculateTransportCapacity();
 
     const maxPopulation = getMaxPopulation(farmLevel, therme, plow, landerweiterung, pygmalion);
     const currentPopulation = maxPopulation - (unitPopulation + buildingPopulation);
@@ -27,6 +28,7 @@ function calculatePopulation() {
     document.getElementById('max_population').innerText = maxPopulation;
     document.getElementById('unit_population_result').innerText = unitPopulation;
     document.getElementById('building_population_result').innerText = buildingPopulation;
+    document.getElementById('transport_capacity').innerText = transportCapacity; // Update transport capacity
 }
 
 function calculateUnitPopulation() {
@@ -103,6 +105,15 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
         maxPopulation += level * 5; // Pygmalion adds a boost equal to the farm level multiplied by 5
     }
     return Math.round(maxPopulation);
+}
+
+function calculateTransportCapacity() {
+    const transportBootCount = parseInt(document.getElementById('transportboot').value) || 0;
+    const schnellesTransportBootCount = parseInt(document.getElementById('schnelles_transportboot').value) || 0;
+    const transportCapacity = (transportBootCount * 26) + (schnellesTransportBootCount * 10);
+    
+    console.log(`Transport Boats: ${transportBootCount}, Fast Transport Boats: ${schnellesTransportBootCount}, Transport Capacity: ${transportCapacity}`);
+    return transportCapacity;
 }
 
 // Attach functions to window object
