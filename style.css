@@ -27,12 +27,12 @@ body {
 }
 
 .left-panel {
-    flex: 0 1 30%;
+    flex: 0 1 40%;
     align-items: center;
 }
 
 .right-panel {
-    flex: 0 1 70%;
+    flex: 0 1 60%;
     align-items: center;
 }
 
@@ -56,26 +56,18 @@ h1 {
     gap: 5px;
 }
 
-.inline-controls-top{
-    justify-content: space-between;
-    width: 100%;
-}
-
-.inline-controls-bottom {
+.inline-controls-top, .inline-controls-bottom {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Updated */
     width: 100%;
 }
 
 .inline-controls-top label {
-    flex-basis: 20%;
     text-align: center;
-    margin-right: 10px; /* Add space between labels */
 }
 
 .inline-controls-bottom input[type="checkbox"],
 .inline-controls-bottom input[type="number"] {
-    flex-basis: 20%;
     text-align: center;
 }
 
@@ -180,4 +172,11 @@ h1 {
     padding: 2px;
     font-size: 1em;
     text-align: center;
+}
+
+.building-consumers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px;
+    width: 100%;
 }
