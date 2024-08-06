@@ -34,7 +34,7 @@ function calculateUnitPopulation() {
     let totalPopulation = 0;
 
     unitInputs.forEach(input => {
-        const unitType = input.id;
+        const unitType = input.getAttribute('data-unit');
         const unitCount = parseInt(input.value) || 0;
         totalPopulation += unitCount * (unitPopulationData[unitType] || 0);
     });
