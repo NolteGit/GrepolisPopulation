@@ -23,12 +23,14 @@
                     <label for="plow">Pflug</label>
                     <label for="pygmalion">Pygmalion</label>
                     <label for="landerweiterung">LE(+50)</label>
+                    <label for="kojen">Kojen</label>
                 </div>
                 <div class="inline-controls-bottom">
                     <input type="checkbox" id="therme" onchange="calculatePopulation()">
                     <input type="checkbox" id="plow" onchange="calculatePopulation()">
                     <input type="checkbox" id="pygmalion" onchange="calculatePopulation()">
                     <input type="number" id="landerweiterung" value="0" min="0" max="6" oninput="calculatePopulation()">
+                    <input type="checkbox" id="kojen" onchange="calculateTransportCapacity()">
                 </div>
             </div>
             <div class="results">
