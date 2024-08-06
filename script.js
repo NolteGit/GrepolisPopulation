@@ -35,6 +35,7 @@ function calculateBuildingPopulation() {
     let totalPopulation = 0;
 
     buildings.forEach(building => {
+        console.log(`Processing building: ${building}`);
         const element = document.getElementById(`${building}_level`);
         if (element) {
             const level = parseInt(element.value) || 0;
