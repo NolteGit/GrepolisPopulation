@@ -33,7 +33,9 @@ function calculatePopulation() {
     // Calculate current transport load
     const currentTransportLoad = calculateCurrentTransportLoad();
     // Update transport capacity display
-    document.getElementById('transport_capacity').innerText = `${currentTransportLoad}/${transportCapacity}`;
+    const transportCapacityElement = document.getElementById('transport_capacity');
+    transportCapacityElement.innerText = `${currentTransportLoad}/${transportCapacity}`;
+    transportCapacityElement.classList.toggle('red-text', currentTransportLoad > transportCapacity); // Toggle red color if boats are overfull
 }
 
 function calculateCurrentTransportLoad() {
