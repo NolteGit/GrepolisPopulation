@@ -27,12 +27,12 @@ body {
 }
 
 .left-panel {
-    flex: 0 1 40%;
+    flex: 0 1 30%;
     align-items: center;
 }
 
 .right-panel {
-    flex: 0 1 60%;
+    flex: 0 1 70%;
     align-items: center;
 }
 
