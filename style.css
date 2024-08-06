@@ -56,7 +56,8 @@ h1 {
     gap: 5px;
 }
 
-.inline-controls {
+.inline-controls-top,
+.inline-controls-bottom {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -64,7 +65,8 @@ h1 {
     justify-content: center;
 }
 
-.inline-controls label {
+.inline-controls-top label,
+.inline-controls-bottom label {
     font-size: 1em;
     color: #555;
     margin: 0;
@@ -74,7 +76,8 @@ h1 {
     align-items: center;
 }
 
-.inline-controls input[type="number"], .inline-controls input[type="checkbox"] {
+.inline-controls-bottom input[type="number"],
+.inline-controls-bottom input[type="checkbox"] {
     width: 50px;
     padding: 2px;
     font-size: 1em;
@@ -153,4 +156,21 @@ h1 {
 }
 
 .unit-consumers, .building-consumers {
-    di
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+.unit-consumers label, .building-consumers label {
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.unit-consumers input, .building-consumers input {
+    width: 50px;
+    padding: 2px;
+    font-size: 1em;
+    text-align: center;
+}
