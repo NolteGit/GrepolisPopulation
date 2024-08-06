@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grepolis Population Manager</title>
+    <title>Grepolis Bevölkerungs Rechner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="left-panel">
-            <h1>Grepolis Population Manager</h1>
+            <h1>Grepolis Bevölkerungs Rechner</h1>
             <div class="controls">
-                <label for="farm_level">Farm Level:</label>
+                <label for="farm_level">Bauernhof Stufe</label>
                 <div class="level-controls">
                     <button onclick="updateFarmLevel(-1)">-</button>
                     <input type="number" id="farm_level" value="45" min="1" max="45" oninput="calculatePopulation()">
@@ -20,7 +20,7 @@
                 <button class="reset-button" onclick="resetInputs()">Reset</button>
                 <div class="inline-controls-top">
                     <label for="therme">Therme</label>
-                    <label for="plow">Plow</label>
+                    <label for="plow">Pflug</label>
                     <label for="pygmalion">Pygmalion</label>
                     <label for="landerweiterung">LE(+50)</label>
                 </div>
@@ -32,11 +32,11 @@
                 </div>
             </div>
             <div class="results">
-                <h2>Results</h2>
-                <p>Current Population: <span id="current_population" class="population-value">0</span></p>
-                <p>Maximum Population: <span id="max_population">0</span></p>
-                <p>Population Used by Units: <span id="unit_population_result">0</span></p>
-                <p>Population Used by Buildings: <span id="building_population_result">0</span></p>
+                <h2>Bevölkerung</h2>
+                <p>Aktuelle Bevölkerung: <span id="current_population" class="population-value">0</span></p>
+                <p>Max. Bevölkerung: <span id="max_population">0</span></p>
+                <p>Belegt durch Gebäude: <span id="building_population_result">0</span></p>
+                <p>Belegt durch Einheiten: <span id="unit_population_result">0</span></p>
             </div>
         </div>
         <div class="right-panel">
