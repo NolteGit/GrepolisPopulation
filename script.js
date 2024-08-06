@@ -28,16 +28,21 @@ function calculatePopulation() {
 
 function calculateBuildingPopulation() {
     const buildings = [
-        'Senat', 'Holzfaeller', 'Steinbruch', 'Silbermine', 'Kaserne', 'Hafen', 
-        'Akademie', 'Marktplatz', 'Tempel', 'Hoehle', 'Stadtmauer', 'SpezialA', 'SpezialB'
+        'senat', 'holzfaeller', 'steinbruch', 'silbermine', 'kaserne', 'hafen', 
+        'akademie', 'marktplatz', 'tempel', 'hoehle', 'stadtmauer', 'speziala', 'spezialb'
     ];
     
     let totalPopulation = 0;
 
     buildings.forEach(building => {
-        const level = parseInt(document.getElementById(`${building.toLowerCase()}_level`).value) || 0;
-        if (buildingPopulationData[building] && level > 0) {
-            totalPopulation += buildingPopulationData[building][level - 1] || 0;
+        const element = document.getElementById(`${building}_level`);
+        if (element) {
+            const level = parseInt(element.value) || 0;
+            if (buildingPopulationData[building.charAt(0).toUpperCase() + building.slice(1)] && level > 0) {
+                totalPopulation += buildingPopulationData[building.charAt(0).toUpperCase() + building.slice(1)][level - 1] || 0;
+            }
+        } else {
+            console.warn(`Element with id "${building}_level" not found.`);
         }
     });
 
