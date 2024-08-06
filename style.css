@@ -58,10 +58,10 @@ h1 {
 
 .inline-controls {
     display: flex;
+    flex-direction: row; /* Ensure labels and inputs are in a row */
     gap: 10px;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .inline-controls label {
@@ -69,6 +69,9 @@ h1 {
     color: #555;
     margin: 0; /* Remove margins */
     padding: 0; /* Remove paddings */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .inline-controls input[type="number"], .inline-controls input[type="checkbox"] {
@@ -76,11 +79,7 @@ h1 {
     padding: 2px; /* Reduce padding */
     font-size: 1em;
     text-align: center;
-    margin-left: 5px; /* Adjust margin to align with checkboxes */
-}
-
-.inline-controls input[type="checkbox"] {
-    margin-left: 5px;
+    margin-top: 5px; /* Add margin to ensure proper alignment */
 }
 
 .controls label {
