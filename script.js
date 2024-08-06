@@ -1,4 +1,5 @@
 import { populationData, buildingPopulationData, unitPopulationData } from './data.js';
+import { translations } from './translations.js';
 
 function updateFarmLevel(change) {
     const farmLevelInput = document.getElementById('farm_level');
@@ -34,11 +35,14 @@ function calculateUnitPopulation() {
     let totalPopulation = 0;
 
     unitInputs.forEach(input => {
-        const unitType = input.getAttribute('data-unit');
+        const unitType = input.id;
         const unitCount = parseInt(input.value) || 0;
-        totalPopulation += unitCount * (unitPopulationData[unitType] || 0);
+        const unitPop = unitPopulationData[unitType] || 0;
+        console.log(`Unit Type: ${unitType}, Count: ${unitCount}, Population per Unit: ${unitPop}`); // Debugging statement
+        totalPopulation += unitCount * unitPop;
     });
 
+    console.log(`Total Unit Population: ${totalPopulation}`); // Debugging statement
     return totalPopulation;
 }
 
