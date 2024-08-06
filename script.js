@@ -44,7 +44,15 @@ function calculateCurrentTransportLoad() {
         const unitType = input.id;
         const unitCount = parseInt(input.value) || 0;
         const unitPop = unitPopulationData[unitType] || 0;
-        if (unitType !== 'transportboot' && unitType !== 'schnelles_transportboot') {
+        
+        // Add all specified unit types to this check
+        const excludedUnits = [
+            'transportboot', 'schnelles_transportboot', 'feuerschiff', 'bireme', 'trireme', 
+            'brander', 'kolonieschiff', 'mantikor', 'hydra', 'harpie', 'pegasus', 
+            'greif', 'sirene', 'ladon'
+        ];
+        
+        if (!excludedUnits.includes(unitType)) {
             totalLoad += unitCount * unitPop;
         }
     });
