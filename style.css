@@ -20,19 +20,19 @@ body {
     gap: 20px;
 }
 
-.left-panel {
-    flex-basis: 40%;
+.left-panel, .right-panel {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.left-panel {
+    flex: 0 1 40%;
     align-items: center; /* Center align the left panel */
 }
 
 .right-panel {
-    flex-basis: 60%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex: 0 1 60%;
     align-items: center; /* Center align the content */
 }
 
@@ -110,4 +110,12 @@ h1 {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+}
+
+.unit-consumers label, .building-consumers label {
+    width: 100%;
+}
+
+.unit-consumers input, .building-consumers input {
+    width: calc(50% - 10px);
 }
