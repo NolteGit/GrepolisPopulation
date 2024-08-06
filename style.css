@@ -17,19 +17,11 @@ body {
     width: 90%;
     max-width: 1200px;
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
+    flex-direction: row; /* Ensure the panels are aligned horizontally */
 }
 
-.left-panel {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.right-panel {
+.left-panel, .right-panel {
     flex: 1;
     min-width: 300px;
     display: flex;
@@ -105,9 +97,9 @@ h1 {
 }
 
 .unit-consumers label, .building-consumers label {
-    width: 100%;
+    width: 100%; /* Ensures each label takes full width */
 }
 
 .unit-consumers input, .building-consumers input {
-    width: calc(50% - 10px);
+    width: calc(50% - 10px); /* Makes the inputs take half the width minus the gap */
 }
