@@ -1,15 +1,206 @@
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
-}
-.container {
-    width: 50%;
-    margin: auto;
-    text-align: center;
-}
-.controls, .results {
-    margin-top: 20px;
-}
-.controls input, .controls button {
-    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    gap: 20px;
+}
+
+.left-panel, .right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.left-panel {
+    flex: 0 1 40%;
+    align-items: center;
+}
+
+.right-panel {
+    flex: 0 1 60%;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+}
+
+/* CSS for the line break and separator */
+.line-break {
+    grid-column: 1 / -1; /* Span across all columns */
+    border-top: 1px solid #ccc; /* Thin line separator */
+    margin: 10px 0; /* Space above and below the line */
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.level-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.inline-controls-top,
+.inline-controls-bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.inline-controls-top label {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.inline-controls-bottom input[type="checkbox"],
+.inline-controls-bottom input[type="number"] {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.inline-controls-bottom input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.inline-controls-bottom input[type="number"] {
+    width: 50px; /* Adjust the width if necessary */
+    text-align: center;
+}
+
+.controls label {
+    font-size: 1.1em;
+    color: #555;
+    margin: 0;
+    padding: 0;
+}
+
+.controls input {
+    padding: 5px;
+    font-size: 1em;
+    width: 60px;
+    text-align: center;
+}
+
+.controls button, .level-controls button, .reset-button {
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6347; /* Reddish color for reset button */
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+    background-color: #FF4500;
+}
+
+.level-controls button {
+    background-color: #4CAF50;
+    padding: 5px 10px;
+    font-size: 1em;
+}
+
+.level-controls button:hover {
+    background-color: #45a049;
+}
+
+.results {
+    text-align: left;
+    margin-top: 0px; /* Adjusted margin-top */
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 100%;
+}
+
+.results h2 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    margin: 0;  /* Remove margin to reduce space */
+    padding-bottom: 10px;  /* Add some padding at the bottom for spacing */
+}
+
+.results p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.results .population-value {
+    font-weight: bold;
+}
+
+.results .population-value.negative {
+    color: red;
+}
+
+.unit-consumers, .building-consumers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+.unit-consumers label, .building-consumers label {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.building-consumers input {
+    width: 50px;
+    padding: 2px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.unit-consumers input{
+    width: 80px;
+    padding: 2px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.building-consumers, .unit-consumers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px;
+}
+
+.building-consumers div, .unit-consumers div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}

@@ -8,129 +8,45 @@
 </head>
 <body>
     <div class="container">
-        <h1>Grepolis Population Manager</h1>
-        <div class="controls">
-            <label for="farm_level">Farm Level:</label>
-            <button onclick="updateFarmLevel(-1)">-</button>
-            <input type="number" id="farm_level" value="1" min="1" max="45" oninput="calculatePopulation()">
-            <button onclick="updateFarmLevel(1)">+</button>
-            <br>
-            <label for="therme">Therme:</label>
-            <input type="checkbox" id="therme" onchange="calculatePopulation()">
-            <label for="plow">Plow:</label>
-            <input type="checkbox" id="plow" onchange="calculatePopulation()">
-            <label for="landerweiterung">Landerweiterung:</label>
-            <input type="number" id="landerweiterung" value="0" min="0" max="6" oninput="calculatePopulation()">
-            <label for="pygmalion">Pygmalion:</label>
-            <input type="checkbox" id="pygmalion" onchange="calculatePopulation()">
+        <div class="left-panel">
+            <h1>Grepolis Population Manager</h1>
+            <div class="controls">
+                <label for="farm_level">Farm Level:</label>
+                <div class="level-controls">
+                    <button onclick="updateFarmLevel(-1)">-</button>
+                    <input type="number" id="farm_level" value="45" min="1" max="45" oninput="calculatePopulation()">
+                    <button onclick="updateFarmLevel(1)">+</button>
+                </div>
+                <button class="reset-button" onclick="resetInputs()">Reset</button>
+                <div class="inline-controls-top">
+                    <label for="therme">Therme</label>
+                    <label for="plow">Plow</label>
+                    <label for="pygmalion">Pygmalion</label>
+                    <label for="landerweiterung">LE(+50)</label>
+                </div>
+                <div class="inline-controls-bottom">
+                    <input type="checkbox" id="therme" onchange="calculatePopulation()">
+                    <input type="checkbox" id="plow" onchange="calculatePopulation()">
+                    <input type="checkbox" id="pygmalion" onchange="calculatePopulation()">
+                    <input type="number" id="landerweiterung" value="0" min="0" max="6" oninput="calculatePopulation()">
+                </div>
+            </div>
+            <div class="results">
+                <h2>Results</h2>
+                <p>Current Population: <span id="current_population" class="population-value">0</span></p>
+                <p>Maximum Population: <span id="max_population">0</span></p>
+                <p>Population Used by Units: <span id="unit_population_result">0</span></p>
+                <p>Population Used by Buildings: <span id="building_population_result">0</span></p>
+            </div>
         </div>
-        <div class="controls">
-            <label for="unit_population">Units Population:</label>
-            <input type="number" id="unit_population" value="0" min="0" oninput="calculatePopulation()">
-            <br>
-        <!-- Unit Selectors -->
-        <div>
-            <label for="Schwertkämpfer">Schwertkämpfer:</label>
-            <input type="number" id="Schwertkämpfer" class="unit-select" data-unit="Schwertkämpfer" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Schleuderer">Schleuderer:</label>
-            <input type="number" id="Schleuderer" class="unit-select" data-unit="Schleuderer" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Bogenschütze">Bogenschütze:</label>
-            <input type="number" id="Bogenschütze" class="unit-select" data-unit="Bogenschütze" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Hoplit">Hoplit:</label>
-            <input type="number" id="Hoplit" class="unit-select" data-unit="Hoplit" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Reiter">Reiter:</label>
-            <input type="number" id="Reiter" class="unit-select" data-unit="Reiter" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Streitwagen">Streitwagen:</label>
-            <input type="number" id="Streitwagen" class="unit-select" data-unit="Streitwagen" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Katapult">Katapult:</label>
-            <input type="number" id="Katapult" class="unit-select" data-unit="Katapult" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Transportboot">Transportboot:</label>
-            <input type="number" id="Transportboot" class="unit-select" data-unit="Transportboot" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Bireme">Bireme:</label>
-            <input type="number" id="Bireme" class="unit-select" data-unit="Bireme" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Feuerschiff">Feuerschiff:</label>
-            <input type="number" id="Feuerschiff" class="unit-select" data-unit="Feuerschiff" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Brander">Brander:</label>
-            <input type="number" id="Brander" class="unit-select" data-unit="Brander" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Schnelles Transportschiff">Schnelles Transportschiff:</label>
-            <input type="number" id="SchnellesTransportschiff" class="unit-select" data-unit="Schnelles Transportschiff" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Trireme">Trireme:</label>
-            <input type="number" id="Trireme" class="unit-select" data-unit="Trireme" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Kolonieschiff">Kolonieschiff:</label>
-            <input type="number" id="Kolonieschiff" class="unit-select" data-unit="Kolonieschiff" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Minotaurus">Minotaurus:</label>
-            <input type="number" id="Minotaurus" class="unit-select" data-unit="Minotaurus" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Mantikor">Mantikor:</label>
-            <input type="number" id="Mantikor" class="unit-select" data-unit="Mantikor" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Zyklop">Zyklop:</label>
-            <input type="number" id="Zyklop" class="unit-select" data-unit="Zyklop" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Hydra">Hydra:</label>
-            <input type="number" id="Hydra" class="unit-select" data-unit="Hydra" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Harpie">Harpie:</label>
-            <input type="number" id="Harpie" class="unit-select" data-unit="Harpie" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Medusa">Medusa:</label>
-            <input type="number" id="Medusa" class="unit-select" data-unit="Medusa" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Zentaure">Zentaure:</label>
-            <input type="number" id="Zentaure" class="unit-select" data-unit="Zentaure" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Pegasus">Pegasus:</label>
-            <input type="number" id="Pegasus" class="unit-select" data-unit="Pegasus" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Zerberus">Zerberus:</label>
-            <input type="number" id="Zerberus" class="unit-select" data-unit="Zerberus" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Erinys">Erinys:</label>
-            <input type="number" id="Erinys" class="unit-select" data-unit="Erinys" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Greif">Greif:</label>
-            <input type="number" id="Greif" class="unit-select" data-unit="Greif" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Eber">Eber:</label>
-            <input type="number" id="Eber" class="unit-select" data-unit="Eber" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Sirene">Sirene:</label>
-            <input type="number" id="Sirene" class="unit-select" data-unit="Sirene" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Satyr">Satyr:</label>
-            <input type="number" id="Satyr" class="unit-select" data-unit="Satyr" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Ladon">Ladon:</label>
-            <input type="number" id="Ladon" class="unit-select" data-unit="Ladon" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Spartoi">Spartoi:</label>
-            <input type="number" id="Spartoi" class="unit-select" data-unit="Spartoi" value="0" min="0" oninput="calculatePopulation()">
-            <label for="Gottgesandter">Gottgesandter:</label>
-            <input type="number" id="Gottgesandter" class="unit-select" data-unit="Gottgesandter" value="0" min="0" oninput="calculatePopulation()">
-        </div>
-            <br>
-            <!-- Building Levels -->
-            <label for="senat_level">Senat:</label>
-            <input type="number" id="senat_level" value="0" min="0" max="25" oninput="calculatePopulation()">
-            <label for="holzfaeller_level">Holzfäller:</label>
-            <input type="number" id="holzfaeller_level" value="0" min="0" max="40" oninput="calculatePopulation()">
-            <label for="steinbruch_level">Steinbruch:</label>
-            <input type="number" id="steinbruch_level" value="0" min="0" max="40" oninput="calculatePopulation()">
-            <label for="silbermine_level">Silbermine:</label>
-            <input type="number" id="silbermine_level" value="0" min="0" max="40" oninput="calculatePopulation()">
-            <label for="kaserne_level">Kaserne:</label>
-            <input type="number" id="kaserne_level" value="0" min="0" max="30" oninput="calculatePopulation()">
-            <label for="hafen_level">Hafen:</label>
-            <input type="number" id="hafen_level" value="0" min="0" max="30" oninput="calculatePopulation()">
-            <label for="akademie_level">Akademie:</label>
-            <input type="number" id="akademie_level" value="0" min="0" max="36" oninput="calculatePopulation()">
-            <label for="marktplatz_level">Marktplatz:</label>
-            <input type="number" id="marktplatz_level" value="0" min="0" max="30" oninput="calculatePopulation()">
-            <label for="tempel_level">Tempel:</label>
-            <input type="number" id="tempel_level" value="0" min="0" max="30" oninput="calculatePopulation()">
-            <label for="hoehle_level">Höhle:</label>
-            <input type="number" id="hoehle_level" value="0" min="0" max="10" oninput="calculatePopulation()">
-            <label for="stadtmauer_level">Stadtmauer:</label>
-            <input type="number" id="stadtmauer_level" value="0" min="0" max="25" oninput="calculatePopulation()">
-            <label for="speziala_level">Spezial A:</label>
-            <input type="number" id="speziala_level" value="0" min="0" max="1" oninput="calculatePopulation()">
-            <label for="spezialb_level">Spezial B:</label>
-            <input type="number" id="spezialb_level" value="0" min="0" max="1" oninput="calculatePopulation()">
-        </div>
-        <div class="results">
-            <h2>Results</h2>
-            <p>Current Population: <span id="current_population">0</span></p>
-            <p>Maximum Population: <span id="max_population">0</span></p>
-            <p>Population Used by Units: <span id="unit_population_result">0</span></p>
-            <p>Population Used by Buildings: <span id="building_population_result">0</span></p>
+        <div class="right-panel">
+            <div id="building-consumers-container"></div>
+            <div id="unit-consumers-container"></div>
         </div>
     </div>
 
+    <script type="module" src="data.js"></script>
+    <script type="module" src="translations.js"></script>
     <script type="module" src="script.js"></script>
 </body>
 </html>

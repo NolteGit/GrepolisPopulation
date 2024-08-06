@@ -1,4 +1,5 @@
 import { populationData, buildingPopulationData, unitPopulationData } from './data.js';
+import { translations } from './translations.js';
 
 function updateFarmLevel(change) {
     const farmLevelInput = document.getElementById('farm_level');
@@ -20,7 +21,10 @@ function calculatePopulation() {
     const maxPopulation = getMaxPopulation(farmLevel, therme, plow, landerweiterung, pygmalion);
     const currentPopulation = maxPopulation - (unitPopulation + buildingPopulation);
 
-    document.getElementById('current_population').innerText = currentPopulation;
+    const currentPopulationElement = document.getElementById('current_population');
+    currentPopulationElement.innerText = currentPopulation;
+    currentPopulationElement.classList.toggle('negative', currentPopulation < 0);
+
     document.getElementById('max_population').innerText = maxPopulation;
     document.getElementById('unit_population_result').innerText = unitPopulation;
     document.getElementById('building_population_result').innerText = buildingPopulation;
@@ -82,6 +86,71 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
 // Attach functions to window object
 window.updateFarmLevel = updateFarmLevel;
 window.calculatePopulation = calculatePopulation;
+window.resetInputs = resetInputs;
+window.switchLanguage = switchLanguage;
+
+// Function to reset inputs
+function resetInputs() {
+    document.getElementById('farm_level').value = 45;
+    document.getElementById('therme').checked = false;
+    document.getElementById('plow').checked = false;
+    document.getElementById('pygmalion').checked = false;
+    document.getElementById('landerweiterung').value = 0;
+    // Reset the consumers as well
+    document.querySelectorAll('.building-consumers input, .unit-consumers input').forEach(input => input.value = 0);
+    calculatePopulation();
+}
 
 // Initialize population calculation
-calculatePopulation();
+document.addEventListener('DOMContentLoaded', () => {
+    calculatePopulation();
+    document.getElementById('farm_level').value = 45;
+    document.getElementById('therme').checked = false;
+    document.getElementById('plow').checked = false;
+    document.getElementById('pygmalion').checked = false;
+    document.getElementById('landerweiterung').value = 0;
+    switchLanguage(); // Set initial language
+});
+
+// Load HTML for building and unit consumers
+async function loadHTML(url, containerId) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const html = await response.text();
+        document.getElementById(containerId).innerHTML = html;
+        calculatePopulation();  // Recalculate population after loading content
+    } catch (error) {
+        console.error('Error loading HTML:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    loadHTML('buildingConsumers.html', 'building-consumers-container');
+    loadHTML('unitConsumers.html', 'unit-consumers-container');
+});
+
+// Function to switch language
+function switchLanguage() {
+    const selectedLanguage = document.getElementById('languageSwitcher').value;
+    const elementsToTranslate = {
+        'title': 'title',
+        'farmLevelLabel': 'farmLevel',
+        'resetButton': 'reset',
+        'thermeLabel': 'therme',
+        'plowLabel': 'plow',
+        'pygmalionLabel': 'pygmalion',
+        'landerweiterungLabel': 'popExtension',
+        'resultsTitle': 'results',
+        'currentPopulationLabel': 'currentPopulation',
+        'maxPopulationLabel': 'maxPopulation',
+        'unitPopulationLabel': 'unitPopulation',
+        'buildingPopulationLabel': 'buildingPopulation'
+    };
+
+    for (const [elementId, translationKey] of Object.entries(elementsToTranslate)) {
+        document.getElementById(elementId).innerText = translations[selectedLanguage][translationKey];
+    }
+}
