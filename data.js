@@ -64,9 +64,9 @@ const buildingPopulationData = {
 };
 
 const unitPopulationData = {
-    Schwertkämpfer: 1,
+    Schwertkaempfer: 1,
     Schleuderer: 1,
-    Bogenschütze: 1,
+    Bogenschuetze: 1,
     Hoplit: 1,
     Reiter: 3,
     Streitwagen: 4,
