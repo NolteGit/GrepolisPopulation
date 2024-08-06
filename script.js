@@ -57,7 +57,7 @@ function calculateCurrentTransportLoad() {
         }
     });
 
-    console.log(`Total Transport Load: ${totalLoad}`); // Debugging statement
+    // console.log(`Total Transport Load: ${totalLoad}`); // Debugging statement
     return totalLoad;
 }
 
@@ -73,7 +73,7 @@ function calculateUnitPopulation() {
         totalPopulation += unitCount * unitPop;
     });
 
-    console.log(`Total Unit Population: ${totalPopulation}`); // Debugging statement
+    // console.log(`Total Unit Population: ${totalPopulation}`); // Debugging statement
     return totalPopulation;
 }
 
@@ -93,7 +93,7 @@ function calculateBuildingPopulation() {
             const populationPerLevel = buildingPopulationData[buildingName] || [];
             const population = populationPerLevel[level - 1] || 0;
             
-            console.log(`Building: ${buildingName}, Level: ${level}, Population per Level: ${population}`);
+            // console.log(`Building: ${buildingName}, Level: ${level}, Population per Level: ${population}`);
             
             if (level > 0) {
                 totalPopulation += population;
@@ -107,16 +107,16 @@ function calculateBuildingPopulation() {
     const spezialAElement = document.getElementById('speziala_level');
     if (spezialAElement && parseInt(spezialAElement.value) > 0) {
         totalPopulation += 60;
-        console.log('Special Building A, Population: 60');
+        // console.log('Special Building A, Population: 60');
     }
 
     const spezialBElement = document.getElementById('spezialb_level');
     if (spezialBElement && parseInt(spezialBElement.value) > 0) {
         totalPopulation += 60;
-        console.log('Special Building B, Population: 60');
+        // console.log('Special Building B, Population: 60');
     }
 
-    console.log(`Total Building Population: ${totalPopulation}`);
+    // console.log(`Total Building Population: ${totalPopulation}`);
     return totalPopulation;
 }
 
@@ -146,7 +146,7 @@ function calculateTransportCapacity(kojen) {
     const schnellesTransportBootCount = parseInt(document.getElementById('schnelles_transportboot').value) || 0;
     const transportCapacity = (transportBootCount * (26 + kojenAddition)) + (schnellesTransportBootCount * (10 + kojenAddition));
     
-    console.log(`Transport Boats: ${transportBootCount}, Fast Transport Boats: ${schnellesTransportBootCount}, Transport Capacity: ${transportCapacity}`);
+    // console.log(`Transport Boats: ${transportBootCount}, Fast Transport Boats: ${schnellesTransportBootCount}, Transport Capacity: ${transportCapacity}`);
     return transportCapacity;
 }
 
