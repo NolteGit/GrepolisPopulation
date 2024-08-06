@@ -29,7 +29,28 @@ function calculatePopulation() {
     document.getElementById('max_population').innerText = maxPopulation;
     document.getElementById('unit_population_result').innerText = unitPopulation;
     document.getElementById('building_population_result').innerText = buildingPopulation;
-    document.getElementById('transport_capacity').innerText = transportCapacity; // Update transport capacity
+
+    // Calculate current transport load
+    const currentTransportLoad = calculateCurrentTransportLoad();
+    // Update transport capacity display
+    document.getElementById('transport_capacity').innerText = `${currentTransportLoad}/${transportCapacity}`;
+}
+
+function calculateCurrentTransportLoad() {
+    const unitInputs = document.querySelectorAll('.unit-consumers input');
+    let totalLoad = 0;
+
+    unitInputs.forEach(input => {
+        const unitType = input.id;
+        const unitCount = parseInt(input.value) || 0;
+        const unitPop = unitPopulationData[unitType] || 0;
+        if (unitType !== 'transportboot' && unitType !== 'schnelles_transportboot') {
+            totalLoad += unitCount * unitPop;
+        }
+    });
+
+    console.log(`Total Transport Load: ${totalLoad}`); // Debugging statement
+    return totalLoad;
 }
 
 function calculateUnitPopulation() {
@@ -133,6 +154,7 @@ function resetInputs() {
     document.getElementById('plow').checked = false;
     document.getElementById('pygmalion').checked = false;
     document.getElementById('landerweiterung').value = 0;
+    document.getElementById('kojen').checked = false; // Reset the kojen checkbox
     // Reset the consumers as well
     document.querySelectorAll('.building-consumers input, .unit-consumers input').forEach(input => input.value = 0);
     calculatePopulation();
@@ -146,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('plow').checked = false;
     document.getElementById('pygmalion').checked = false;
     document.getElementById('landerweiterung').value = 0;
+    document.getElementById('kojen').checked = false;
 });
 
 // Load HTML for building and unit consumers
