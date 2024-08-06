@@ -171,15 +171,17 @@ h1 {
     text-align: center;
 }
 
-.unit-consumers input, .building-consumers input {
+.building-consumers input {
     width: 50px;
     padding: 2px;
     font-size: 1em;
     text-align: center;
 }
 
-.unit-consumers input[type="number"] {
-    width: 70px; /* Adjusted width */
+.unit-consumers input{
+    width: 80px;
+    padding: 2px;
+    font-size: 1em;
     text-align: center;
 }
 
