@@ -14,18 +14,21 @@
                 <label for="farm_level">Farm Level:</label>
                 <div class="level-controls">
                     <button onclick="updateFarmLevel(-1)">-</button>
-                    <input type="number" id="farm_level" value="1" min="1" max="45" oninput="calculatePopulation()">
+                    <input type="number" id="farm_level" value="45" min="1" max="45" oninput="calculatePopulation()">
                     <button onclick="updateFarmLevel(1)">+</button>
                 </div>
+                <button onclick="resetInputs()">Reset</button>
                 <div class="inline-controls">
                     <label for="therme">Therme:</label>
-                    <input type="checkbox" id="therme" onchange="calculatePopulation()">
                     <label for="plow">Plow:</label>
-                    <input type="checkbox" id="plow" onchange="calculatePopulation()">
-                    <label for="landerweiterung">Landerweiterung:</label>
-                    <input type="number" id="landerweiterung" value="0" min="0" max="6" oninput="calculatePopulation()">
                     <label for="pygmalion">Pygmalion:</label>
+                    <label for="landerweiterung">Landerweiterung (+50):</label>
+                </div>
+                <div class="inline-controls">
+                    <input type="checkbox" id="therme" onchange="calculatePopulation()">
+                    <input type="checkbox" id="plow" onchange="calculatePopulation()">
                     <input type="checkbox" id="pygmalion" onchange="calculatePopulation()">
+                    <input type="number" id="landerweiterung" value="0" min="0" max="6" oninput="calculatePopulation()">
                 </div>
             </div>
             <div class="results">
@@ -62,7 +65,20 @@
         document.addEventListener('DOMContentLoaded', (event) => {
             loadHTML('buildingConsumers.html', 'building-consumers-container');
             loadHTML('unitConsumers.html', 'unit-consumers-container');
+            document.getElementById('farm_level').value = 45;  // Set default farm level to 45
         });
+
+        function resetInputs() {
+            document.getElementById('farm_level').value = 45;
+            document.getElementById('therme').checked = false;
+            document.getElementById('plow').checked = false;
+            document.getElementById('pygmalion').checked = false;
+            document.getElementById('landerweiterung').value = 0;
+            // Reset the consumers as well
+            document.querySelectorAll('.building-consumers input').forEach(input => input.value = 0);
+            document.querySelectorAll('.unit-consumers input').forEach(input => input.value = 0);
+            calculatePopulation();
+        }
     </script>
 </body>
 </html>
