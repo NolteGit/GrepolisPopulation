@@ -87,7 +87,6 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
 window.updateFarmLevel = updateFarmLevel;
 window.calculatePopulation = calculatePopulation;
 window.resetInputs = resetInputs;
-window.switchLanguage = switchLanguage;
 
 // Function to reset inputs
 function resetInputs() {
@@ -109,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('plow').checked = false;
     document.getElementById('pygmalion').checked = false;
     document.getElementById('landerweiterung').value = 0;
-    switchLanguage(); // Set initial language
 });
 
 // Load HTML for building and unit consumers
