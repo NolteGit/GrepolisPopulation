@@ -51,13 +51,16 @@
                 }
                 const html = await response.text();
                 document.getElementById(containerId).innerHTML = html;
+                calculatePopulation();  // Recalculate population after loading content
             } catch (error) {
                 console.error('Error loading HTML:', error);
             }
         }
 
-        loadHTML('buildingConsumers.html', 'building-consumers-container');
-        loadHTML('unitConsumers.html', 'unit-consumers-container');
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadHTML('buildingConsumers.html', 'building-consumers-container');
+            loadHTML('unitConsumers.html', 'unit-consumers-container');
+        });
     </script>
 </body>
 </html>
