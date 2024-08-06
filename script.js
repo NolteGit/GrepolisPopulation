@@ -119,7 +119,7 @@ function calculateBuildingPopulation() {
     }
 
     // console.log(`Total Building Population: ${totalPopulation}`);
-    return totalPopulation;
+    return Math.round(totalPopulation);
 }
 
 function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
