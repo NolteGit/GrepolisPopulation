@@ -17,12 +17,12 @@
                     <input type="number" id="farm_level" value="45" min="1" max="45" oninput="calculatePopulation()">
                     <button onclick="updateFarmLevel(1)">+</button>
                 </div>
-                <button onclick="resetInputs()">Reset</button>
+                <button class="reset-button" onclick="resetInputs()">Reset</button>
                 <div class="inline-controls">
-                    <label for="therme">Therme</label>
-                    <label for="plow">Plow</label>
-                    <label for="pygmalion">Pygmalion</label>
-                    <label for="landerweiterung">Landerweiterung(+50)</label>
+                    <label for="therme">Therme:</label>
+                    <label for="plow">Plow:</label>
+                    <label for="pygmalion">Pygmalion:</label>
+                    <label for="landerweiterung">Landerweiterung (+50):</label>
                 </div>
                 <div class="inline-controls">
                     <input type="checkbox" id="therme" onchange="calculatePopulation()">
@@ -33,7 +33,7 @@
             </div>
             <div class="results">
                 <h2>Results</h2>
-                <p>Current Population: <span id="current_population">0</span></p>
+                <p>Current Population: <span id="current_population" class="population-value">0</span></p>
                 <p>Maximum Population: <span id="max_population">0</span></p>
                 <p>Population Used by Units: <span id="unit_population_result">0</span></p>
                 <p>Population Used by Buildings: <span id="building_population_result">0</span></p>
@@ -78,6 +78,19 @@
             document.querySelectorAll('.building-consumers input').forEach(input => input.value = 0);
             document.querySelectorAll('.unit-consumers input').forEach(input => input.value = 0);
             calculatePopulation();
+        }
+
+        function calculatePopulation() {
+            // Your existing population calculation logic...
+
+            // Update the color of the current population based on its value
+            const currentPopulationElement = document.getElementById('current_population');
+            const currentPopulationValue = parseInt(currentPopulationElement.textContent);
+            if (currentPopulationValue < 0) {
+                currentPopulationElement.classList.add('negative');
+            } else {
+                currentPopulationElement.classList.remove('negative');
+            }
         }
     </script>
 </body>
