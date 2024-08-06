@@ -58,7 +58,7 @@ h1 {
 
 .inline-controls {
     display: flex;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -71,7 +71,7 @@ h1 {
     padding: 0; /* Remove paddings */
 }
 
-.inline-controls input[type="number"] {
+.inline-controls input[type="number"], .inline-controls input[type="checkbox"] {
     width: 50px;
     padding: 2px; /* Reduce padding */
     font-size: 1em;
