@@ -75,8 +75,14 @@ h1 {
     color: #555;
 }
 
+.inline-controls-bottom input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+
 .inline-controls-bottom input[type="number"] {
-    width: 60px; /* Adjust the width if necessary */
+    width: 50px; /* Adjust the width if necessary */
     text-align: center;
 }
 
@@ -121,10 +127,10 @@ h1 {
 
 .results {
     text-align: left;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 1.1em;
     border: 1px solid #ccc;
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
     background-color: #f9f9f9;
     width: 100%;
@@ -141,6 +147,10 @@ h1 {
     font-size: 1.2em;
     color: #555;
     margin: 5px 0;
+}
+
+.results .population-value {
+    font-weight: bold;
 }
 
 .results .population-value.negative {
