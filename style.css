@@ -58,7 +58,7 @@ h1 {
 
 .inline-controls {
     display: flex;
-    flex-direction: row; /* Ensure labels and inputs are in a row */
+    flex-direction: row;
     gap: 10px;
     align-items: center;
     justify-content: center;
@@ -67,8 +67,8 @@ h1 {
 .inline-controls label {
     font-size: 1em;
     color: #555;
-    margin: 0; /* Remove margins */
-    padding: 0; /* Remove paddings */
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,17 +76,17 @@ h1 {
 
 .inline-controls input[type="number"], .inline-controls input[type="checkbox"] {
     width: 50px;
-    padding: 2px; /* Reduce padding */
+    padding: 2px;
     font-size: 1em;
     text-align: center;
-    margin-top: 5px; /* Add margin to ensure proper alignment */
+    margin-top: 5px;
 }
 
 .controls label {
     font-size: 1.1em;
     color: #555;
-    margin: 0; /* Remove margins */
-    padding: 0; /* Remove paddings */
+    margin: 0;
+    padding: 0;
 }
 
 .controls input {
@@ -96,7 +96,7 @@ h1 {
     text-align: center;
 }
 
-.controls button, .level-controls button {
+.controls button, .level-controls button, .reset-button {
     padding: 8px 15px;
     font-size: 1em;
     cursor: pointer;
@@ -112,6 +112,14 @@ h1 {
     font-size: 1em;
 }
 
+.reset-button {
+    background-color: #FF6347;
+}
+
+.reset-button:hover {
+    background-color: #FF4500;
+}
+
 .controls button:hover, .level-controls button:hover {
     background-color: #45a049;
 }
@@ -120,35 +128,29 @@ h1 {
     text-align: left;
     margin-top: 20px;
     font-size: 1.1em;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 100%;
 }
 
 .results h2 {
     font-size: 1.5em;
     color: #333;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .results p {
     font-size: 1.2em;
     color: #555;
+    margin: 5px 0;
+}
+
+.results .population-value.negative {
+    color: red;
 }
 
 .unit-consumers, .building-consumers {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px; /* Reduce gap */
-    justify-content: center;
-}
-
-.unit-consumers label, .building-consumers label {
-    width: auto; /* Auto width to align next to inputs */
-    margin: 0; /* Remove margins */
-    padding: 0; /* Remove paddings */
-}
-
-.unit-consumers input, .building-consumers input {
-    width: 50px; /* Smaller width */
-    padding: 2px; /* Reduce padding */
-    font-size: 1em;
-    text-align: center;
-}
+    di
