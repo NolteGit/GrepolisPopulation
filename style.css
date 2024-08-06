@@ -105,25 +105,22 @@ h1 {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #FF6347; /* Reddish color for reset button */
     color: white;
     transition: background-color 0.3s;
-}
-
-.level-controls button {
-    padding: 5px 10px;
-    font-size: 1em;
-}
-
-.reset-button {
-    background-color: #FF6347;
 }
 
 .reset-button:hover {
     background-color: #FF4500;
 }
 
-.controls button:hover, .level-controls button:hover {
+.level-controls button {
+    background-color: #4CAF50;
+    padding: 5px 10px;
+    font-size: 1em;
+}
+
+.level-controls button:hover {
     background-color: #45a049;
 }
 
