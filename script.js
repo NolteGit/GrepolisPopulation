@@ -1,25 +1,5 @@
 import { populationData, buildingPopulationData, unitPopulationData } from './data.js';
 
-async function loadHTML(url, containerId) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const html = await response.text();
-            document.getElementById(containerId).innerHTML = html;
-            calculatePopulation();  // Recalculate population after loading content
-        } catch (error) {
-            console.error('Error loading HTML:', error);
-        }
-    }
-    
-    document.addEventListener('DOMContentLoaded', (event) => {
-        loadHTML('buildingConsumers.html', 'building-consumers-container');
-        loadHTML('unitConsumers.html', 'unit-consumers-container');
-        document.getElementById('farm_level').value = 45;  // Set default farm level to 45
-    });
-
 function updateFarmLevel(change) {
     const farmLevelInput = document.getElementById('farm_level');
     let farmLevel = parseInt(farmLevelInput.value);
@@ -107,19 +87,39 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
     return Math.min(maxPopulation, 4116);
 }
 
+// async function loadHTML(url, containerId) {
+//     try {
+//         const response = await fetch(url);
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+//         const html = await response.text();
+//         document.getElementById(containerId).innerHTML = html;
+//         calculatePopulation();  // Recalculate population after loading content
+//     } catch (error) {
+//         console.error('Error loading HTML:', error);
+//     }
+// }
+
 async function loadHTML(url, containerId) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const html = await response.text();
+            document.getElementById(containerId).innerHTML = html;
+            calculatePopulation();  // Recalculate population after loading content
+        } catch (error) {
+            console.error('Error loading HTML:', error);
         }
-        const html = await response.text();
-        document.getElementById(containerId).innerHTML = html;
-        calculatePopulation();  // Recalculate population after loading content
-    } catch (error) {
-        console.error('Error loading HTML:', error);
     }
-}
+    
+    document.addEventListener('DOMContentLoaded', (event) => {
+        loadHTML('buildingConsumers.html', 'building-consumers-container');
+        loadHTML('unitConsumers.html', 'unit-consumers-container');
+        document.getElementById('farm_level').value = 45;  // Set default farm level to 45
+    });
 
 document.addEventListener('DOMContentLoaded', (event) => {
     loadHTML('buildingConsumers.html', 'building-consumers-container');
