@@ -44,13 +44,20 @@
     <script type="module" src="script.js"></script>
     <script>
         async function loadHTML(url, containerId) {
-            const response = await fetch(url);
-            const html = await response.text();
-            document.getElementById(containerId).innerHTML = html;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+            } catch (error) {
+                console.error('Error loading HTML:', error);
+            }
         }
 
-        loadHTML('buildingConsumers.html', 'building-consumers-container');
-        loadHTML('unitConsumers.html', 'unit-consumers-container');
+        loadHTML('building-consumers.html', 'building-consumers-container');
+        loadHTML('unit-consumers.html', 'unit-consumers-container');
     </script>
 </body>
 </html>
