@@ -61,5 +61,9 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
     return Math.min(maxPopulation, 4116);
 }
 
+// Attach functions to window object
+window.updateFarmLevel = updateFarmLevel;
+window.calculatePopulation = calculatePopulation;
+
 // Initialize population calculation
 calculatePopulation();
