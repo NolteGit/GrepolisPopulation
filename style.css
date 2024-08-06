@@ -56,7 +56,11 @@ h1 {
     gap: 5px;
 }
 
-.inline-controls-top,
+.inline-controls-top{
+    justify-content: space-between;
+    width: 100%;
+}
+
 .inline-controls-bottom {
     display: flex;
     justify-content: space-between;
