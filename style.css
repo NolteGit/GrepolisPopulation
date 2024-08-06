@@ -58,7 +58,7 @@ h1 {
 
 .inline-controls {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -67,13 +67,16 @@ h1 {
 .inline-controls label {
     font-size: 1em;
     color: #555;
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove paddings */
 }
 
 .inline-controls input[type="number"] {
     width: 50px;
-    padding: 5px;
+    padding: 2px; /* Reduce padding */
     font-size: 1em;
     text-align: center;
+    margin-left: 5px; /* Adjust margin to align with checkboxes */
 }
 
 .inline-controls input[type="checkbox"] {
@@ -83,6 +86,8 @@ h1 {
 .controls label {
     font-size: 1.1em;
     color: #555;
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove paddings */
 }
 
 .controls input {
@@ -132,17 +137,19 @@ h1 {
 .unit-consumers, .building-consumers {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px; /* Reduce gap */
     justify-content: center;
 }
 
 .unit-consumers label, .building-consumers label {
-    width: 100%;
+    width: auto; /* Auto width to align next to inputs */
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove paddings */
 }
 
 .unit-consumers input, .building-consumers input {
-    width: calc(30% - 10px);
-    padding: 5px;
+    width: 50px; /* Smaller width */
+    padding: 2px; /* Reduce padding */
     font-size: 1em;
     text-align: center;
 }
