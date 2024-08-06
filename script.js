@@ -45,7 +45,7 @@ function calculateUnitPopulation() {
 
 function calculateBuildingPopulation() {
     const buildings = [
-        'senat', 'holzfaeller', 'steinbruch', 'silbermine', 'kaserne', 'hafen', 
+        'senat', 'holzfaeller', 'steinbruch', 'silbermine', 'lager', 'kaserne', 'hafen', 
         'akademie', 'marktplatz', 'tempel', 'hoehle', 'stadtmauer', 'speziala', 'spezialb'
     ];
     
