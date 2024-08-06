@@ -17,18 +17,21 @@ body {
     width: 90%;
     max-width: 1200px;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .left-panel {
-    flex-basis: 40%;
+    flex: 1;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .right-panel {
-    flex-basis: 60%;
+    flex: 1;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -95,16 +98,16 @@ h1 {
     color: #555;
 }
 
-.unit-consumers {
+.unit-consumers, .building-consumers {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.unit-consumers label {
+.unit-consumers label, .building-consumers label {
     width: 100%;
 }
 
-.unit-consumers input {
+.unit-consumers input, .building-consumers input {
     width: calc(50% - 10px);
 }
