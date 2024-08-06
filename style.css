@@ -43,6 +43,13 @@ h1 {
     text-align: center;
 }
 
+/* CSS for the line break and separator */
+.line-break {
+    grid-column: 1 / -1; /* Span across all columns */
+    border-top: 1px solid #ccc; /* Thin line separator */
+    margin: 10px 0; /* Space above and below the line */
+}
+
 .controls {
     display: flex;
     flex-direction: column;
