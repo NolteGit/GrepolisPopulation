@@ -2,7 +2,7 @@
 function updateFarmLevel(change) {
     const farmLevelInput = document.getElementById('farm_level');
     let farmLevel = parseInt(farmLevelInput.value);
-    farmLevel = Math.max(1, farmLevel + change);
+    farmLevel = Math.min(Math.max(1, farmLevel + change), 45); // Ensure the farm level stays within 1 to 45
     farmLevelInput.value = farmLevel;
     calculatePopulation();
 }
@@ -37,7 +37,7 @@ function getMaxPopulation(level, therme, plow, landerweiterung, pygmalion) {
         maxPopulation += landerweiterung * 50;
     }
     if (pygmalion) {
-        maxPopulation += level * 5; // Assuming Pygmalion adds a boost equal to the farm level
+        maxPopulation += level * 5; // Pygmalion adds a boost equal to the farm level multiplied by 5
     }
     return Math.min(maxPopulation, 4116);
 }
