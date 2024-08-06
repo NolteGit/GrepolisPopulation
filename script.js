@@ -37,7 +37,7 @@ function calculateUnitPopulation() {
         const unitType = input.id;
         const unitCount = parseInt(input.value) || 0;
         const unitPop = unitPopulationData[unitType] || 0;
-        console.log(`Unit Type: ${unitType}, Count: ${unitCount}, Population per Unit: ${unitPop}`); // Debugging statement
+        // console.log(`Unit Type: ${unitType}, Count: ${unitCount}, Population per Unit: ${unitPop}`); // Debugging statement
         totalPopulation += unitCount * unitPop;
     });
 
@@ -57,14 +57,21 @@ function calculateBuildingPopulation() {
         const element = document.getElementById(`${building}_level`);
         if (element) {
             const level = parseInt(element.value) || 0;
-            if (buildingPopulationData[building.charAt(0).toUpperCase() + building.slice(1)] && level > 0) {
-                totalPopulation += buildingPopulationData[building.charAt(0).toUpperCase() + building.slice(1)][level - 1] || 0;
+            const buildingName = building.charAt(0).toUpperCase() + building.slice(1);
+            const populationPerLevel = buildingPopulationData[buildingName] || [];
+            const population = populationPerLevel[level - 1] || 0;
+            
+            console.log(`Building: ${buildingName}, Level: ${level}, Population per Level: ${population}`);
+            
+            if (population > 0 && level > 0) {
+                totalPopulation += population;
             }
         } else {
             console.warn(`Element with id "${building}_level" not found.`);
         }
     });
 
+    console.log(`Total Building Population: ${totalPopulation}`);
     return totalPopulation;
 }
 
