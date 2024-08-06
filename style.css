@@ -18,27 +18,36 @@ body {
     max-width: 1200px;
     display: flex;
     gap: 20px;
-    flex-direction: row; /* Ensure the panels are aligned horizontally */
 }
 
-.left-panel, .right-panel {
-    flex: 1;
-    min-width: 300px;
+.left-panel {
+    flex-basis: 40%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
+}
+
+.right-panel {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
 h1 {
     margin-bottom: 20px;
     font-size: 2em;
     color: #333;
+    text-align: center;
 }
 
 .controls {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: center;
 }
 
 .level-controls {
@@ -67,11 +76,16 @@ h1 {
     border-radius: 5px;
     background-color: #4CAF50;
     color: white;
+    transition: background-color 0.3s;
 }
 
 .level-controls button {
     padding: 5px 10px;
     font-size: 1em;
+}
+
+.controls button:hover, .level-controls button:hover {
+    background-color: #45a049;
 }
 
 .results {
@@ -83,6 +97,7 @@ h1 {
 .results h2 {
     font-size: 1.5em;
     color: #333;
+    text-align: center;
 }
 
 .results p {
@@ -94,12 +109,13 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
 .unit-consumers label, .building-consumers label {
-    width: 100%; /* Ensures each label takes full width */
+    width: 100%;
 }
 
 .unit-consumers input, .building-consumers input {
-    width: calc(50% - 10px); /* Makes the inputs take half the width minus the gap */
+    width: calc(50% - 10px);
 }
