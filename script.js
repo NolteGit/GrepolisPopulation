@@ -36,6 +36,32 @@ function calculatePopulation() {
     const transportCapacityElement = document.getElementById('transport_capacity');
     transportCapacityElement.innerText = `${currentTransportLoad}/${transportCapacity}`;
     transportCapacityElement.classList.toggle('red-text', currentTransportLoad > transportCapacity); // Toggle red color if boats are overfull
+
+    updateSummary();
+}
+
+function updateSummary() {
+    let summary = [];
+
+    // Check building consumers
+    document.querySelectorAll('.building-consumers input').forEach(input => {
+        const buildingName = input.previousElementSibling.innerText;
+        const value = parseInt(input.value);
+        if (value > 0) {
+            summary.push(`${buildingName}: ${value}`);
+        }
+    });
+
+    // Check unit consumers
+    document.querySelectorAll('.unit-consumers input').forEach(input => {
+        const unitName = input.previousElementSibling.innerText;
+        const value = parseInt(input.value);
+        if (value > 0) {
+            summary.push(`${unitName}: ${value}`);
+        }
+    });
+
+    document.getElementById('summaryContent').innerText = summary.length > 0 ? summary.join(', ') : 'Keine Auswahl';
 }
 
 function calculateCurrentTransportLoad() {
